@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imgbaihatcothethich"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginLeft="5dp" />
+    <TextView
+        android:maxLines="1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/imgbaihatcothethich"
+        android:id="@+id/txttenbaohatcothethich"
+        android:text="Tên Bài Hát"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:textSize="16dp"
+        android:textColor="#000000"
+        />
+    <TextView
+        android:maxLines="1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/imgbaihatcothethich"
+        android:layout_below="@+id/txttenbaohatcothethich"
+        android:id="@+id/txttencasicothethich"
+        android:text="Ca sĩ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13dp"
+        android:ellipsize="end"
+        android:textColor="#888484"
+        />
+
+</RelativeLayout>

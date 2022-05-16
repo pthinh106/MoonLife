@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bottom_home"
+        android:title="@string/bottom_home"
+        android:icon="@drawable/ic_baseline_home_24"
+        />
+    <item
+        android:id="@+id/bottom_rank"
+        android:title="@string/bottom_rank"
+        android:icon="@drawable/ic_baseline_poll_24"
+        />
+    <item
+        android:id="@+id/bottom_sreach"
+        android:title="@string/abottom_search"
+        android:icon="@drawable/ic_search"
+        />
+    <item
+        android:id="@+id/bottom_mypgage"
+        android:title="@string/abottom_mypage"
+        android:icon="@drawable/ic_baseline_account_circle_24"
+        />
+
+
+</menu>

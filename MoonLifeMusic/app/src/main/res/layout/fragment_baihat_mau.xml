@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginBottom="7dp"
+    android:background="@null">
+    <RelativeLayout
+        android:background="@null"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txtdanhsachphatindex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"/>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_toRightOf="@+id/txtdanhsachphatindex"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/imgbaihatdanhsach"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            />
+        <TextView
+            android:maxLines="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/imgbaihatdanhsach"
+            android:id="@+id/txtbaihatdanhsach"
+            android:text="Tên Bài Hát"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:textSize="16dp"
+            android:textColor="#000000"
+            />
+
+        <TextView
+            android:id="@+id/txttencasibaihat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtbaihatdanhsach"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/imgbaihatdanhsach"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Ca sĩ"
+            android:textColor="#888484"
+            android:textSize="13dp" />
+    </RelativeLayout>
+</RelativeLayout>

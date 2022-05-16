@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.DanhSachBaiHatActivity"
+    android:id="@+id/coordinatorLayoutdanhsachphat"
+    android:fitsSystemWindows="true"
+    android:background="@drawable/custom_background_banner">
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbarlayout"
+        android:fitsSystemWindows="true"
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:background="@null"
+        >
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:background="@null"
+            android:id="@+id/collapsingtoolbardanhsachbaihat"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:expandedTitleGravity="center|bottom"
+            app:expandedTitleMarginBottom="33dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <View
+                android:background="@drawable/custom_background_banner"
+                android:alpha="0.3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbardanhsachbaihat"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:elevation="6dp"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                android:layout_marginBottom="20dp">
+                <TextView
+                    android:layout_gravity="center|left"
+                    android:textStyle="bold"
+                    android:text="Phuoc Thinh"
+                    android:id="@+id/txttitletoolbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </androidx.appcompat.widget.Toolbar>
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:cardCornerRadius="10dp">
+                <ImageView
+                    android:scaleType="fitXY"
+                    android:id="@+id/imgdanhsachbaihat"
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:layout_gravity="center"
+                    android:elevation="6dp"
+                    android:src="@mipmap/ic_launcher" />
+            </androidx.cardview.widget.CardView>
+            <TextView
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="70dp"
+                android:layout_gravity="bottom|center"
+                android:text="Nguyen phuoc thinh"
+                android:id="@+id/txttitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:backgroundTint="#C5CCF3"
+        android:layout_marginRight="20dp"
+        android:scaleType="fitXY"
+        app:fabSize="normal"
+        android:id="@+id/floatingactionbtn"
+        app:layout_anchorGravity="bottom|center"
+        app:layout_anchor="@id/appbarlayout"
+        app:layout_behavior="@string/bottom_sheet_behavior"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Phát Nhạc">
+    </com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@null"
+        app:layout_anchor="@+id/nestedScrollView"
+        app:layout_anchorGravity="center"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:background="@null"
+            android:id="@+id/rcv_danhsachbaihat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="50dp" />
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

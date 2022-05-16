@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/txtplaydanhsachphatindex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"/>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_toRightOf="@+id/txtplaydanhsachphatindex"
+            android:layout_marginLeft="5dp"
+            android:id="@+id/imgplaybaihatdanhsach"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            />
+
+        <TextView
+            android:id="@+id/txtplaybaihatdanhsach"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@+id/imgplaybaihatdanhsach"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Tên Bài Hát"
+            android:textColor="#000000"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/txtplaytencasibaihat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txtplaybaihatdanhsach"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/imgplaybaihatdanhsach"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Ca sĩ"
+            android:textColor="#888484"
+            android:textSize="13dp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
