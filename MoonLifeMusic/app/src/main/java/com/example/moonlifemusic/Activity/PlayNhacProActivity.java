@@ -139,7 +139,6 @@ public class PlayNhacProActivity extends AppCompatActivity {
         imageButtonnexnhac.setOnClickListener(view -> sendActionToService(ForegroundServiceControl.ACTION_NEXT));
         imageButtonpreviewnhac.setOnClickListener(view -> sendActionToService(ForegroundServiceControl.ACTION_PREVIOUS));
         toolbarplaynhac.setNavigationOnClickListener(view -> {
-            mangbaihat.clear();
             finish();
         });
     }

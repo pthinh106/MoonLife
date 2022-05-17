@@ -10,14 +10,92 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/bottom_nav" />
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_nav"
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/linearmusicactivity"
+        android:background="@drawable/custom_background_banner"
+        android:layout_above="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="70dp">
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/custom_background_banner"
-            app:menu="@menu/menu_bottom_nav"
-            app:itemIconTint="@color/custom_color_bottom_nav"
-            app:itemTextColor="@color/custom_color_bottom_nav"
-            android:layout_alignParentBottom="true"
-            />
+            android:layout_height="match_parent">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:id="@+id/imgplaybaihatdanhsach1"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                />
+
+            <TextView
+                android:id="@+id/txtplaybaihatdanhsach1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/imgplaybaihatdanhsach1"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="Tên Bài Hát"
+                android:textColor="#000000"
+                android:textSize="16dp" />
+
+            <TextView
+                android:layout_centerVertical="true"
+                android:id="@+id/txtplaytencasibaihat1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txtplaybaihatdanhsach1"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/imgplaybaihatdanhsach1"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="Ca sĩ"
+                android:textColor="#888484"
+                android:textSize="13dp" />
+            <ImageButton
+
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/btnplaypause1"
+                android:layout_marginLeft="30dp"
+                android:scaleType="fitXY"
+                android:background="@null"
+                android:src="@drawable/iconpreview"
+                android:id="@+id/btnprevious1"
+                android:layout_width="40dp"
+                android:layout_height="40dp"/>
+            <ImageButton
+
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/btnnext1"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:scaleType="fitXY"
+                android:background="@null"
+                android:src="@drawable/nutplay"
+                android:id="@+id/btnplaypause1"
+                android:layout_width="40dp"
+                android:layout_height="40dp"/>
+            <ImageButton
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:scaleType="fitXY"
+                android:background="@null"
+                android:src="@drawable/iconnext"
+                android:id="@+id/btnnext1"
+                android:layout_width="40dp"
+                android:layout_height="40dp"/>
+        </RelativeLayout>
+    </LinearLayout>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/custom_background_banner"
+        app:itemIconTint="@color/custom_color_bottom_nav"
+        app:itemTextColor="@color/custom_color_bottom_nav"
+        app:menu="@menu/menu_bottom_nav" />
 </RelativeLayout>

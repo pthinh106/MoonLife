@@ -26,18 +26,19 @@
             android:padding="2dp"
             android:layout_width="70dp"
             android:layout_height="70dp"/>
+
         <TextView
-            android:textStyle="bold"
-            android:textColor="#ffffff"
-            android:text="yeu em nhieu"
-            android:ellipsize="end"
-            android:textSize="17sp"
             android:id="@+id/txtviewbannerbaihat"
-            android:layout_toRightOf="@id/imgviewbanner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignTop="@id/imgviewbanner"
             android:layout_marginTop="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_toRightOf="@id/imgviewbanner"
+            android:ellipsize="end"
+            android:text="yeu em nhieu"
+            android:textColor="#ffffff"
+            android:textSize="17sp"
+            android:textStyle="bold" />
         <RelativeLayout
             android:layout_marginTop="7dp"
             android:layout_toRightOf="@id/imgviewbanner"

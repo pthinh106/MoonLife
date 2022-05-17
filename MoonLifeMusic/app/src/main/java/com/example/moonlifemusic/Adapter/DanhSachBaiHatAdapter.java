@@ -62,11 +62,12 @@ public class DanhSachBaiHatAdapter extends  RecyclerView.Adapter<DanhSachBaiHatA
 
     public class ViewHolderr extends RecyclerView.ViewHolder {
         ImageView imageViewBaiHat;
-        TextView textViewtencasi, textViewtenBaiHat,textViewindex;
+        TextView textViewtencasi, textViewtenBaiHat,textViewindex,textViewyeuthich;
 
         public ViewHolderr(@NonNull View itemView) {
 
             super(itemView);
+//            textViewyeuthich= itemView.findViewById(R.id.yeuthich1);
             imageViewBaiHat = itemView.findViewById(R.id.imgbaihatdanhsach);
             textViewtenBaiHat = itemView.findViewById(R.id.txtbaihatdanhsach);
             textViewtencasi = itemView.findViewById(R.id.txttencasibaihat);

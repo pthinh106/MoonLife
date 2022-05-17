@@ -65,10 +65,11 @@ public class CoTheBanThichAdapter extends  RecyclerView.Adapter<CoTheBanThichAda
     }
 
     public class ViewHolderr extends RecyclerView.ViewHolder {
-        TextView textViewtencasi,textViewtenbaihat;
+        TextView textViewtencasi,textViewtenbaihat,textViewyeuthich;
         ImageView imageViewhinhbaihat;
         public ViewHolderr(@NonNull View itemView) {
             super(itemView);
+//            textViewyeuthich= itemView.findViewById(R.id.yeuthich);
             textViewtenbaihat = itemView.findViewById(R.id.txttenbaohatcothethich);
             textViewtencasi = itemView.findViewById(R.id.txttencasicothethich);
             imageViewhinhbaihat = itemView.findViewById(R.id.imgbaihatcothethich);
