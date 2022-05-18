@@ -117,6 +117,11 @@ public class ForegroundServiceControl extends Service {
             case ACTION_DURATION:
                 mediaPlayer.seekTo(seekToTime);
                 break;
+            case ACTION_RANDOM:
+                Random random = new Random();
+                positionPlayer = random.nextInt(sizeArray);
+                break;
+
         }
     }
 
