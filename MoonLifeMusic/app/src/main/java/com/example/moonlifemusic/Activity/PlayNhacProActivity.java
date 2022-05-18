@@ -35,7 +35,6 @@ public class PlayNhacProActivity extends AppCompatActivity {
     private ImageButton imageButtontronnhac, imageButtonpreviewnhac, imageButtonplaypausenhac, imageButtonnexnhac,
             imageButtonlapnhac;
     private int dem = 0, position = 0, duration = 0, timeValue = 0, durationToService = 0;
-    public static int position2 = 0;
     private boolean repeat = false, checkrandom = false, isplaying;
     private static ArrayList<Baihat> mangbaihat = new ArrayList<>();
     private DiaNhacFragment fragment_dia_nhac;
@@ -51,7 +50,6 @@ public class PlayNhacProActivity extends AppCompatActivity {
                 duration = intent.getIntExtra("duration_music", 0);
                 timeValue = intent.getIntExtra("seektomusic", 0);
                 position = intent.getIntExtra("position_music", 0);
-                position2 = position;
                 seekBarnhac.setProgress(timeValue);
                 @SuppressLint("SimpleDateFormat") SimpleDateFormat simpleDateFormat = new SimpleDateFormat("mm:ss");
                 textViewrunrime.setText(simpleDateFormat.format(timeValue));
@@ -72,6 +70,7 @@ public class PlayNhacProActivity extends AppCompatActivity {
         enventClick();
         setViewStart();
         StartService();
+        MainActivity.isplay(mangbaihat.get(position));
         overridePendingTransition(R.anim.anim_intent_in, R.anim.anim_intent_out);
     }
     private void StartService() {
@@ -234,6 +233,9 @@ public class PlayNhacProActivity extends AppCompatActivity {
                 completeNextMusic();
                 break;
             case ForegroundServiceControl.ACTION_PREVIOUS:
+                completePreviousMusic();
+                break;
+            case ForegroundServiceControl.ACTION_NEW:
                 completePreviousMusic();
                 break;
         }

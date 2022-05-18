@@ -53,6 +53,7 @@ public class TimKiemActivity extends AppCompatActivity {
             public void onResponse(Call<List<Baihat>> call, Response<List<Baihat>> response) {
                 baihat = (ArrayList<Baihat>) response.body();
                 if(baihat.size() > 0){
+                    timKiemAdapter = new TimKiemAdapter(TimKiemActivity.this,baihat);
                     LinearLayoutManager layoutManager = new LinearLayoutManager(TimKiemActivity.this);
                     recyclerView.setLayoutManager(layoutManager);
                     recyclerView.setAdapter(timKiemAdapter);

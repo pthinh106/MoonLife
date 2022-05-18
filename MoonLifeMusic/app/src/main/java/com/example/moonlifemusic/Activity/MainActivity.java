@@ -17,21 +17,24 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.moonlifemusic.Adapter.MyViewPagerAdapter;
+import com.example.moonlifemusic.Fragment.mybottomsheet;
 import com.example.moonlifemusic.Model.Baihat;
 import com.example.moonlifemusic.R;
+import com.example.moonlifemusic.Service_Local.ForegroundServiceControl;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends AppCompatActivity {
-    private LinearLayout linearLayout;
-    private CircleImageView circleImageView;
-    private TextView textViewtenbaihat, textViewtencasi;
+    private ArrayList<Baihat> arrayList;
+    private static LinearLayout linearLayout;
+    private static CircleImageView circleImageView;
+    private static TextView textViewtenbaihat, textViewtencasi;
     private ImageButton btnpre, btnplay, btnnext;
-    private static ArrayList<Baihat> arrayList;
     private ViewPager2 mViewPager2;
     private BottomNavigationView mBottomNavigationView;
     private  static String user;
@@ -44,13 +47,54 @@ public class MainActivity extends AppCompatActivity {
             if (intent != null){
                 isplaying = intent.getBooleanExtra("status_player", false);
                 action = intent.getIntExtra("action_music", 0);
-                duration = intent.getIntExtra("duration_music", 0);
-                timeValue = intent.getIntExtra("seektomusic", 0);
                 position = intent.getIntExtra("position_music", 0);
-                position2 = position;
+                arrayList= (ArrayList<Baihat>) intent.getSerializableExtra("mangbaihat");
+                handleMusic(action);
             }
         }
     };
+
+    private void handleMusic(int action){
+        switch (action){
+            case ForegroundServiceControl.ACTION_PAUSE:
+                btnplay.setImageResource(R.drawable.nutpause);
+                break;
+            case ForegroundServiceControl.ACTION_RESUME:
+                btnplay.setImageResource(R.drawable.nutplay);
+                break;
+            case ForegroundServiceControl.ACTION_NEXT:
+                completeNextMusic();
+                break;
+            case ForegroundServiceControl.ACTION_PREVIOUS:
+                completePreviousMusic();
+                break;
+            case ForegroundServiceControl.ACTION_NEW:
+                newmusic();
+                break;
+            case ForegroundServiceControl.ACTION_STOP:
+                linearLayout.setVisibility(View.GONE);
+                break;
+        }
+    }
+
+    private void newmusic() {
+        Picasso.get().load(arrayList.get(position).getHinhBaiHat()).into(circleImageView);
+        textViewtencasi.setText(arrayList.get(position).getCaSi());
+        textViewtenbaihat.setText(arrayList.get(position).getTenBaiHat());
+    }
+
+    private void completePreviousMusic() {
+        Picasso.get().load(arrayList.get(position).getHinhBaiHat()).into(circleImageView);
+        textViewtencasi.setText(arrayList.get(position).getCaSi());
+        textViewtenbaihat.setText(arrayList.get(position).getTenBaiHat());
+    }
+
+    private void completeNextMusic() {
+        Picasso.get().load(arrayList.get(position).getHinhBaiHat()).into(circleImageView);
+        textViewtencasi.setText(arrayList.get(position).getCaSi());
+        textViewtenbaihat.setText(arrayList.get(position).getTenBaiHat());
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -103,7 +147,11 @@ public class MainActivity extends AppCompatActivity {
         mViewPager2.setUserInputEnabled(false);
 //        DateIntent();
     }
-
+    private void sendActionToService(int action){
+        Intent intent = new Intent(this, ForegroundServiceControl.class);
+        intent.putExtra("action_music_service", action);
+        startService(intent);
+    }
     private void anhxa() {
         mViewPager2 = findViewById(R.id.view_pager2);
         mBottomNavigationView = findViewById(R.id.bottom_nav);
@@ -115,22 +163,50 @@ public class MainActivity extends AppCompatActivity {
         btnplay = findViewById(R.id.btnplaypause1);
         btnnext = findViewById(R.id.btnnext1);
         arrayList = PlayNhacProActivity.arrayListbaihat;
-
-    }
-
-    private void DateIntent() {
-        Intent intent = getIntent();
-        if(intent != null){
-            if(intent.hasExtra("user")){
-                user = intent.getStringExtra("user");
+        btnpre.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendActionToService(ForegroundServiceControl.ACTION_PREVIOUS);
             }
-        }
+        });
+        btnnext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sendActionToService(ForegroundServiceControl.ACTION_NEXT);
+            }
+        });
+        btnplay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (isplaying){
+                    sendActionToService(ForegroundServiceControl.ACTION_PAUSE);
+                    btnplay.setImageResource(R.drawable.nutpause);
+                }else {
+                    sendActionToService(ForegroundServiceControl.ACTION_RESUME);
+                    btnplay.setImageResource(R.drawable.nutplay);
+                }
+            }
+        });
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openbottomsheet();
+            }
+        });
 
     }
-    private void isplay(){
-        if(isplaying){
-            linearLayout.setVisibility(View.VISIBLE);
-        }
+
+    private void openbottomsheet() {
+        mybottomsheet mybottomsheet = new mybottomsheet(arrayList);
+        mybottomsheet.show(getSupportFragmentManager(),mybottomsheet.getTag());
+    }
+
+    public static void isplay(Baihat baihat){
+
+        linearLayout.setVisibility(View.VISIBLE);
+        Picasso.get().load(baihat.getHinhBaiHat()).into(circleImageView);
+        textViewtencasi.setText(baihat.getCaSi());
+        textViewtenbaihat.setText(baihat.getTenBaiHat());
     }
     public static String getuser(){
         if(user != null){

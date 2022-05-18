@@ -15,7 +15,7 @@
         <entry key="..\:/Thinh/MoonLifeMusic/app/src/main/res/layout/activity_dang_nhap.xml" value="0.36666666666666664" />
         <entry key="..\:/Thinh/MoonLifeMusic/app/src/main/res/layout/activity_danh_sach_all_album.xml" value="0.3046875" />
         <entry key="..\:/Thinh/MoonLifeMusic/app/src/main/res/layout/activity_danh_sach_bai_hat.xml" value="0.36666666666666664" />
-        <entry key="..\:/Thinh/MoonLifeMusic/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Thinh/MoonLifeMusic/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Thinh/MoonLifeMusic/app/src/main/res/layout/activity_play_nhac_pro.xml" value="0.27447916666666666" />
         <entry key="..\:/Thinh/MoonLifeMusic/app/src/main/res/layout/fragment_baihat_mau.xml" value="0.36666666666666664" />
         <entry key="..\:/Thinh/MoonLifeMusic/app/src/main/res/layout/fragment_bang_xep_hang.xml" value="0.18802083333333333" />
@@ -33,6 +33,8 @@
         <entry key="..\:/Thinh/MoonLifeMusic/app/src/main/res/layout/fragment_trang_chu.xml" value="0.22239583333333332" />
         <entry key="..\:/Thinh/MoonLifeMusic/app/src/main/res/menu/menu_bottom_nav.xml" value="0.284375" />
         <entry key="..\:/Thinh/MoonLifeMusic/app/src/main/res/menu/seachview.xml" value="0.36666666666666664" />
+        <entry key="..\:/Thinh/MoonLifeMusic/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3025" />
+        <entry key="..\:/Thinh/MoonLifeMusic/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.3025" />
       </map>
     </option>
   </component>

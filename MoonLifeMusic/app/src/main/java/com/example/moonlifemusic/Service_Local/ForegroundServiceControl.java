@@ -39,6 +39,9 @@ public class ForegroundServiceControl extends Service {
     public static final int ACTION_DURATION = 5;
     public static final int ACTION_REPEAT = 6;
     public static final int ACTION_RANDOM = 7;
+    public static final int ACTION_NEW = 7;
+    public static final int ACTION_STOP = 8;
+
     private MediaPlayer mediaPlayer;
     private boolean isPlaying, isRepeat, isRandom;
     private String urlImage;
@@ -69,6 +72,9 @@ public class ForegroundServiceControl extends Service {
         seekToTime = intent.getIntExtra("duration", 0);
         isRepeat = intent.getBooleanExtra("repeat_music", false);
         isRandom = intent.getBooleanExtra("random_music", false);
+        if(intent.hasExtra("pos")){
+            positionPlayer = intent.getIntExtra("pos",0);
+        }
         handleActionMusic(actionMusic);
         return START_NOT_STICKY;
     }
@@ -100,11 +106,22 @@ public class ForegroundServiceControl extends Service {
                 }
                 CompleteAndStart();
                 break;
+            case ACTION_NEW:
+                CompleteAndStart();
+                sendActonToPlayNhacActivity(ACTION_NEW);
+                break;
+            case ACTION_STOP:
+                sendActonToPlayNhacActivity(ACTION_STOP);
+                stopSelf();
+                break;
             case ACTION_DURATION:
                 mediaPlayer.seekTo(seekToTime);
                 break;
         }
     }
+
+
+
     private void startMusic(String linkBaiHat) {
         if (mediaPlayer != null){
             mediaPlayer.stop();
@@ -175,7 +192,7 @@ public class ForegroundServiceControl extends Service {
                 .setContentText(tenCaSi)
 
                 .setStyle(new androidx.media.app.NotificationCompat.MediaStyle()
-                            .setShowActionsInCompactView(0,1,2)
+                            .setShowActionsInCompactView(0,1,2,3)
                             .setMediaSession(mediaSessionCompat.getSessionToken()))
                 .addAction(R.drawable.ic_baseline_skip_previous_24, "Previous", getPendingIntent(this, ACTION_PREVIOUS));
         if (isPlaying){
@@ -184,6 +201,7 @@ public class ForegroundServiceControl extends Service {
             notificationBuilder.addAction(R.drawable.ic_baseline_play_arrow_24, "Pause", getPendingIntent(this, ACTION_RESUME));
         }
         notificationBuilder.addAction(R.drawable.ic_baseline_skip_next_24, "Next", getPendingIntent(this, ACTION_NEXT));
+        notificationBuilder.addAction(R.drawable.ic_clear, "Next", getPendingIntent(this, ACTION_STOP));
         Picasso.get().load(urlImage)
                 .into(new Target() {
                     @Override
@@ -213,6 +231,7 @@ public class ForegroundServiceControl extends Service {
             intent.putExtra("position_music", positionPlayer);
             intent.putExtra("duration_music", duration);
             intent.putExtra("seektomusic", curentime);
+            intent.putExtra("mangbaihat",mangbaihat);
             LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
         }
     }

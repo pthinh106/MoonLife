@@ -9,7 +9,7 @@
         android:id="@+id/view_pager2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/bottom_nav" />
+        android:layout_above="@id/linearmusicactivity" />
     <LinearLayout
         android:visibility="gone"
         android:id="@+id/linearmusicactivity"
@@ -29,8 +29,9 @@
                 />
 
             <TextView
+
                 android:id="@+id/txtplaybaihatdanhsach1"
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
@@ -44,7 +45,7 @@
             <TextView
                 android:layout_centerVertical="true"
                 android:id="@+id/txtplaytencasibaihat1"
-                android:layout_width="wrap_content"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/txtplaybaihatdanhsach1"
                 android:layout_marginLeft="10dp"
