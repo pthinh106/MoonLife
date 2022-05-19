@@ -44,12 +44,15 @@ public class ForegroundServiceControl extends Service {
     public static final int ACTION_NEW = 8;
     public static final int ACTION_STOP =9;
     public static final int ACTION_ADD =10;
-    private Baihat baihat;
+    private Baihat baihat , baihat0;
     private MediaPlayer mediaPlayer;
     private boolean isPlaying, isRepeat, isRandom , tontai = false;
     private String urlImage;
     private ArrayList<Baihat> mangbaihat = new ArrayList<>();
-    private int positionPlayer = 0, duration = 0, seekToTime = 0, curentime = 0;
+    private int positionPlayer = 0;
+    private int duration = 0;
+    private int seekToTime = 0;
+    private int curentime = 0;
     @Override
     public void onCreate() {
         super.onCreate();
@@ -75,8 +78,8 @@ public class ForegroundServiceControl extends Service {
         seekToTime = intent.getIntExtra("duration", 0);
         isRepeat = intent.getBooleanExtra("repeat_music", false);
         isRandom = intent.getBooleanExtra("random_music", false);
-        if(intent.hasExtra("pos")){
-            positionPlayer = intent.getIntExtra("pos",0);
+        if(intent.hasExtra("baihat")){
+            baihat0 = (Baihat) intent.getSerializableExtra("baihat");
         }
         if(intent.hasExtra("addbaihat")){
             baihat = (Baihat) intent.getSerializableExtra("addbaihat");
@@ -119,6 +122,13 @@ public class ForegroundServiceControl extends Service {
                 CompleteAndStart();
                 break;
             case ACTION_NEW:
+                int i = 0;
+               for (Baihat baihat1 : mangbaihat){
+                    if(baihat1.getIdBaiHat().equals(baihat0.getIdBaiHat())){
+                        positionPlayer = i;
+                    }
+                    i++;
+                }
                 CompleteAndStart();
                 sendActonToPlayNhacActivity(ACTION_NEW);
                 break;

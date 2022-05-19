@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
                         openbottomsheet(arrayList);
                     }
                 });
+                isplay(arrayList.get(position));
                 handleMusic(action);
             }
         }

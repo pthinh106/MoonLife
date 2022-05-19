@@ -17,7 +17,7 @@ public class PlayListCaNhanActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_list_ca_nhan);
-        toolbar = findViewById(R.id.toolbarresetpass);
+        toolbar = findViewById(R.id.toolbarplaylistcanhan);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {

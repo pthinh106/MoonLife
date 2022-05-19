@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -51,11 +52,10 @@ public class PlayDanhSachBaiHatAdapter extends  RecyclerView.Adapter<PlayDanhSac
             public void onClick(View view) {
                 Intent intent = new Intent(context, ForegroundServiceControl.class);
                 intent.putExtra("action_music_service", ForegroundServiceControl.ACTION_NEW);
-                intent.putExtra("pos", position);
+                intent.putExtra("baihat", baihat);
                 context.startService(intent);
             }
         });
-
 
     }
 

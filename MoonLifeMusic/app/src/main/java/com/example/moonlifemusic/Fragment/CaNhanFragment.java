@@ -70,7 +70,6 @@ public class CaNhanFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 user = MainActivity.getuser();
-                Toast.makeText(getActivity(),MainActivity.getuser(),Toast.LENGTH_SHORT).show();
                 if(user == null){
                     Intent intent = new Intent(getActivity(), DangNhapActivity.class);
                     startActivity(intent);
