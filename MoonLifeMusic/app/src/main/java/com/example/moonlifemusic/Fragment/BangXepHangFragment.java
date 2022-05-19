@@ -117,7 +117,9 @@ public class BangXepHangFragment extends Fragment {
                 linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
                 recyclerView.setLayoutManager(linearLayoutManager);
                 recyclerView.setAdapter(bangXepHangAdapter);
-                clickeventbtn();
+                if(arrayBaiHat.size() > 0){
+                    clickeventbtn();
+                }
             }
 
             @Override

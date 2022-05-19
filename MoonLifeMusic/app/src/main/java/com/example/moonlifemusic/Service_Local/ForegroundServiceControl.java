@@ -17,11 +17,13 @@ import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.IBinder;
 import android.support.v4.media.session.MediaSessionCompat;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
+import com.example.moonlifemusic.Activity.MainActivity;
 import com.example.moonlifemusic.Model.Baihat;
 import com.example.moonlifemusic.R;
 import com.squareup.picasso.Picasso;
@@ -39,11 +41,12 @@ public class ForegroundServiceControl extends Service {
     public static final int ACTION_DURATION = 5;
     public static final int ACTION_REPEAT = 6;
     public static final int ACTION_RANDOM = 7;
-    public static final int ACTION_NEW = 7;
-    public static final int ACTION_STOP = 8;
-
+    public static final int ACTION_NEW = 8;
+    public static final int ACTION_STOP =9;
+    public static final int ACTION_ADD =10;
+    private Baihat baihat;
     private MediaPlayer mediaPlayer;
-    private boolean isPlaying, isRepeat, isRandom;
+    private boolean isPlaying, isRepeat, isRandom , tontai = false;
     private String urlImage;
     private ArrayList<Baihat> mangbaihat = new ArrayList<>();
     private int positionPlayer = 0, duration = 0, seekToTime = 0, curentime = 0;
@@ -75,6 +78,15 @@ public class ForegroundServiceControl extends Service {
         if(intent.hasExtra("pos")){
             positionPlayer = intent.getIntExtra("pos",0);
         }
+        if(intent.hasExtra("addbaihat")){
+            baihat = (Baihat) intent.getSerializableExtra("addbaihat");
+        }
+        if(intent.hasExtra("tontai"))
+        {
+            tontai = intent.getBooleanExtra("tontai",false);
+        }
+
+
         handleActionMusic(actionMusic);
         return START_NOT_STICKY;
     }
@@ -111,17 +123,35 @@ public class ForegroundServiceControl extends Service {
                 sendActonToPlayNhacActivity(ACTION_NEW);
                 break;
             case ACTION_STOP:
-                sendActonToPlayNhacActivity(ACTION_STOP);
-                stopSelf();
+                MainActivity.setoff();
+                mediaPlayer.stop();
+                stopSelf(-1);
                 break;
             case ACTION_DURATION:
                 mediaPlayer.seekTo(seekToTime);
                 break;
             case ACTION_RANDOM:
                 Random random = new Random();
-                positionPlayer = random.nextInt(sizeArray);
+                positionPlayer = random.nextInt(mangbaihat.size());
                 break;
-
+            case ACTION_ADD:
+                if(mangbaihat.size() ==0 ){
+                    Toast.makeText(this,"Chưa Tạo Play Nhạc",Toast.LENGTH_SHORT).show();
+                    break;
+                }
+                for (Baihat baihat1 : mangbaihat){
+                    if(baihat1.getIdBaiHat().equals(baihat.getIdBaiHat())){
+                        tontai = true;
+                        Toast.makeText(this,"Bài Hát Đã Tồn Tại Trong Danh Sách",Toast.LENGTH_SHORT).show();
+                        break;
+                    }
+                }
+                if(!tontai){
+                    mangbaihat.add(baihat);
+                    Toast.makeText(this,"Thêm Thành Công",Toast.LENGTH_SHORT).show();
+                    sendActonToPlayNhacActivity(ACTION_ADD);
+                }
+                break;
         }
     }
 
@@ -221,7 +251,7 @@ public class ForegroundServiceControl extends Service {
                     }
                 });
         Notification notification = notificationBuilder.build();
-        startForeground(1, notification);
+        startForeground(-1, notification);
     }
     private PendingIntent getPendingIntent(Context context, int action){
         Intent intent = new Intent(this, BroadcastReceiverAction.class);
@@ -258,8 +288,11 @@ public class ForegroundServiceControl extends Service {
     }
     @Override
     public void onDestroy() {
-        super.onDestroy();
         mediaPlayer.stop();
+        mediaPlayer.release();
+        mediaPlayer = null;
+        super.onDestroy();
+
     }
     @SuppressWarnings("deprecation")
     @SuppressLint("StaticFieldLeak")

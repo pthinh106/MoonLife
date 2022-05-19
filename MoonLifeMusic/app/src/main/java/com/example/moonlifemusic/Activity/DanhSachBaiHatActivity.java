@@ -85,7 +85,9 @@ public class DanhSachBaiHatActivity extends AppCompatActivity {
                 danhSachBaiHatAdapter = new DanhSachBaiHatAdapter(DanhSachBaiHatActivity.this,mangbaihat);
                 recyclerViewdanhsachbaihat.setLayoutManager(new LinearLayoutManager(DanhSachBaiHatActivity.this));
                 recyclerViewdanhsachbaihat.setAdapter(danhSachBaiHatAdapter);
-                eventclickFloatButtion();
+                if(mangbaihat.size() > 0){
+                    eventclickFloatButtion();
+                }
             }
 
             @Override

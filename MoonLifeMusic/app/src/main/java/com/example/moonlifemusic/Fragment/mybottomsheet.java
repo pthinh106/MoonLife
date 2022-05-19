@@ -1,12 +1,17 @@
 package com.example.moonlifemusic.Fragment;
 
 import android.app.Dialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,9 +35,8 @@ public class mybottomsheet extends BottomSheetDialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-
         BottomSheetDialog bottomSheetDialog = (BottomSheetDialog) super.onCreateDialog(savedInstanceState);
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.fragment_playdanhsachbaihat,null);
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.bottomsheetdanhsachbaihat,null);
         bottomSheetDialog.setContentView(view);
         RecyclerView recyclerView = view.findViewById(R.id.rcv_playbaihat);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());

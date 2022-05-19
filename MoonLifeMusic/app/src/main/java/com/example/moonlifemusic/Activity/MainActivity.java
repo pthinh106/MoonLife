@@ -1,10 +1,12 @@
 package com.example.moonlifemusic.Activity;
 
+import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
@@ -26,6 +28,7 @@ import com.google.android.material.navigation.NavigationBarView;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -37,10 +40,10 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton btnpre, btnplay, btnnext;
     private ViewPager2 mViewPager2;
     private BottomNavigationView mBottomNavigationView;
-    private  static String user;
+    private  static String user ,id;
     private int dem = 0, position = 0, duration = 0, timeValue = 0, durationToService = 0;
-    public static int position2 = 0,action;
-    private boolean repeat = false, checkrandom = false, isplaying;
+    public static int action;
+    private boolean isplaying = true;
     private final BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -49,6 +52,12 @@ public class MainActivity extends AppCompatActivity {
                 action = intent.getIntExtra("action_music", 0);
                 position = intent.getIntExtra("position_music", 0);
                 arrayList= (ArrayList<Baihat>) intent.getSerializableExtra("mangbaihat");
+                linearLayout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        openbottomsheet(arrayList);
+                    }
+                });
                 handleMusic(action);
             }
         }
@@ -71,7 +80,10 @@ public class MainActivity extends AppCompatActivity {
             case ForegroundServiceControl.ACTION_NEW:
                 newmusic();
                 break;
+            case ForegroundServiceControl.ACTION_ADD:
+                break;
             case ForegroundServiceControl.ACTION_STOP:
+                arrayList = new ArrayList<>();
                 linearLayout.setVisibility(View.GONE);
                 break;
         }
@@ -102,6 +114,15 @@ public class MainActivity extends AppCompatActivity {
         LocalBroadcastManager.getInstance(this).registerReceiver(broadcastReceiver,
                 new IntentFilter("send_data_to_activity"));
         anhxa();
+        eventclick();
+        Intent intent = getIntent();
+        if(intent.hasExtra("user")){
+            user = intent.getStringExtra("user");
+
+        }
+        if(intent.hasExtra("id")){
+            id = intent.getStringExtra("id");
+        }
         MyViewPagerAdapter myViewPagerAdapter = new MyViewPagerAdapter(this);
         mViewPager2.setAdapter(myViewPagerAdapter);
         mBottomNavigationView.setSelectedItemId(R.id.bottom_home);
@@ -119,9 +140,9 @@ public class MainActivity extends AppCompatActivity {
 //                    Intent intent = new Intent(MainActivity.this, TimKiemActivity.class);
 //                    startActivity(intent);
                 }
-//                else if(id == R.id.bottom_mypgage){
-//                    mViewPager2.setCurrentItem(3);
-//                }
+                else if(id == R.id.bottom_mypgage){
+                    mViewPager2.setCurrentItem(3);
+                }
                 return true;
             }
         });
@@ -138,31 +159,16 @@ public class MainActivity extends AppCompatActivity {
                     case 2:
                         mBottomNavigationView.getMenu().findItem(R.id.bottom_sreach).setChecked(true);
                         break;
-//                    case 3:
-//                        mBottomNavigationView.getMenu().findItem(R.id.bottom_mypgage).setChecked(true);
-//                        break;
+                    case 3:
+                        mBottomNavigationView.getMenu().findItem(R.id.bottom_mypgage).setChecked(true);
+                        break;
                 }
             }
         });
         mViewPager2.setUserInputEnabled(false);
-//        DateIntent();
     }
-    private void sendActionToService(int action){
-        Intent intent = new Intent(this, ForegroundServiceControl.class);
-        intent.putExtra("action_music_service", action);
-        startService(intent);
-    }
-    private void anhxa() {
-        mViewPager2 = findViewById(R.id.view_pager2);
-        mBottomNavigationView = findViewById(R.id.bottom_nav);
-        linearLayout = findViewById(R.id.linearmusicactivity);
-        circleImageView = findViewById(R.id.imgplaybaihatdanhsach1);
-        textViewtenbaihat = findViewById(R.id.txtplaybaihatdanhsach1);
-        textViewtencasi = findViewById(R.id.txtplaytencasibaihat1);
-        btnpre = findViewById(R.id.btnprevious1);
-        btnplay = findViewById(R.id.btnplaypause1);
-        btnnext = findViewById(R.id.btnnext1);
-        arrayList = PlayNhacProActivity.arrayListbaihat;
+
+    private void eventclick() {
         btnpre.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -187,26 +193,40 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        linearLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openbottomsheet();
-            }
-        });
 
     }
 
-    private void openbottomsheet() {
+    private void sendActionToService(int action){
+        Intent intent = new Intent(this, ForegroundServiceControl.class);
+        intent.putExtra("action_music_service", action);
+        startService(intent);
+    }
+
+    private void anhxa() {
+        mViewPager2 = findViewById(R.id.view_pager2);
+        mBottomNavigationView = findViewById(R.id.bottom_nav);
+        linearLayout = findViewById(R.id.linearmusicactivity);
+        circleImageView = findViewById(R.id.imgplaybaihatdanhsach1);
+        textViewtenbaihat = findViewById(R.id.txtplaybaihatdanhsach1);
+        textViewtencasi = findViewById(R.id.txtplaytencasibaihat1);
+        btnpre = findViewById(R.id.btnprevious1);
+        btnplay = findViewById(R.id.btnplaypause1);
+        btnnext = findViewById(R.id.btnnext1);
+    }
+
+    private void openbottomsheet(ArrayList<Baihat> arrayList) {
         mybottomsheet mybottomsheet = new mybottomsheet(arrayList);
         mybottomsheet.show(getSupportFragmentManager(),mybottomsheet.getTag());
     }
 
     public static void isplay(Baihat baihat){
-
         linearLayout.setVisibility(View.VISIBLE);
         Picasso.get().load(baihat.getHinhBaiHat()).into(circleImageView);
         textViewtencasi.setText(baihat.getCaSi());
         textViewtenbaihat.setText(baihat.getTenBaiHat());
+    }
+    public static void setoff(){
+        linearLayout.setVisibility(View.GONE);
     }
     public static String getuser(){
         if(user != null){
@@ -214,9 +234,19 @@ public class MainActivity extends AppCompatActivity {
         }
         return null;
     }
+    public static String getId(){
+        if(id != null){
+            return  id;
+        }
+        return null;
+    }
     public static void setuser(){
         user = null;
     }
+    public static void setid(){
+        id = null;
+    }
+
 
 
 }

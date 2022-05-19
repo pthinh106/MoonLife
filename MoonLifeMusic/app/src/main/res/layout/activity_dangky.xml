@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.DangkyActivity"
+    android:orientation="vertical"
+    android:weightSum="10"
+    android:background="@drawable/custom_background_banner">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbardangky"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"/>
+    <RelativeLayout
+        android:layout_weight="1.5"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imgdangnhap"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/monolifego"
+            app:civ_border_color="#3DC4DC"
+            app:civ_border_width="2dp" />
+    </RelativeLayout>
+    <LinearLayout
+        android:weightSum="10"
+        android:layout_weight="7"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/hovaten"
+                android:layout_width="350dp"
+                android:layout_height="65dp"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:background="@drawable/edt_all"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textColor="@color/design_default_color_background"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="18sp"
+                app:counterEnabled="true"
+                app:counterMaxLength="36"
+                app:endIconMode="clear_text"
+                app:endIconTint="#FFFFFF"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/custom_background_banner"
+                    android:hint="Họ Và Tên"
+                    android:textColor="#000000" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/sdt"
+                android:layout_width="350dp"
+                android:layout_height="65dp"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:background="@drawable/edt_all"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textColor="@color/design_default_color_background"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="18sp"
+                app:counterEnabled="true"
+                app:counterMaxLength="36"
+                app:endIconMode="clear_text"
+                app:endIconTint="#FFFFFF"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/custom_background_banner"
+                    android:hint="Số Điện Thoại"
+                    android:textColor="#000000" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/email"
+                android:layout_width="350dp"
+                android:layout_height="65dp"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:background="@drawable/edt_all"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textColor="@color/design_default_color_background"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="18sp"
+                app:counterEnabled="true"
+                app:counterMaxLength="36"
+                app:endIconMode="clear_text"
+                app:endIconTint="#FFFFFF"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/custom_background_banner"
+                    android:hint="Email"
+                    android:textColor="#000000" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/user"
+                android:layout_width="350dp"
+                android:layout_height="65dp"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:background="@drawable/edt_all"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:textColor="@color/design_default_color_background"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="18sp"
+                app:counterEnabled="true"
+                app:counterMaxLength="36"
+                app:endIconMode="clear_text"
+                app:endIconTint="#FFFFFF"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/custom_background_banner"
+                    android:hint="Tên Đăng Nhập"
+                    android:textColor="#000000" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_weight="2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/pass"
+                android:layout_width="350dp"
+                android:layout_height="65dp"
+                android:layout_gravity="center"
+                android:background="@drawable/edt_all"
+                android:layout_centerInParent="true"
+                android:ems="10"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="#FFFFFF"
+                app:counterEnabled="true"
+                app:counterMaxLength="36"
+                app:errorEnabled="true"
+                android:textColor="@color/design_default_color_background"
+                android:textColorHint="@color/colorPrimary"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent" >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:background="@drawable/custom_background_banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textPassword"
+                    android:textColor="#000000"
+                    android:hint="Mật Khẩu" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_weight="1.5"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btndangky"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/shape_bgr_button"
+                android:text="Đăng Ký"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

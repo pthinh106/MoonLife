@@ -47,9 +47,13 @@ public class PlayNhacProActivity extends AppCompatActivity {
             if (intent != null){
                 isplaying = intent.getBooleanExtra("status_player", false);
                 int action = intent.getIntExtra("action_music", 0);
+                if(action == ForegroundServiceControl.ACTION_STOP){
+                    finish();
+                }
                 duration = intent.getIntExtra("duration_music", 0);
                 timeValue = intent.getIntExtra("seektomusic", 0);
                 position = intent.getIntExtra("position_music", 0);
+                mangbaihat = (ArrayList<Baihat>) intent.getSerializableExtra("mangbaihat");
                 seekBarnhac.setProgress(timeValue);
                 @SuppressLint("SimpleDateFormat") SimpleDateFormat simpleDateFormat = new SimpleDateFormat("mm:ss");
                 textViewrunrime.setText(simpleDateFormat.format(timeValue));
@@ -68,9 +72,10 @@ public class PlayNhacProActivity extends AppCompatActivity {
         GetDataFromIntent();
         AnhXa();
         enventClick();
+        MainActivity.isplay(mangbaihat.get(position));
+        Intent intent = getIntent();
         setViewStart();
         StartService();
-        MainActivity.isplay(mangbaihat.get(position));
         overridePendingTransition(R.anim.anim_intent_in, R.anim.anim_intent_out);
     }
     private void StartService() {
@@ -238,6 +243,10 @@ public class PlayNhacProActivity extends AppCompatActivity {
             case ForegroundServiceControl.ACTION_NEW:
                 completePreviousMusic();
                 break;
+            case ForegroundServiceControl.ACTION_STOP:
+                timeValue = 0 ;
+                finish();
+                break;
         }
     }
     private void sendActionToService(int action){
@@ -253,6 +262,12 @@ public class PlayNhacProActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setTitle(tenBaiHat);
         textViewcasi.setText(tenCaSi);
         textViewtennhac.setText(tenBaiHat);
+    }
+    private void setView1(Baihat baihat){
+        fragment_dia_nhac.playnhac(baihat.getHinhBaiHat());
+        Objects.requireNonNull(getSupportActionBar()).setTitle(baihat.getTenBaiHat());
+        textViewcasi.setText(baihat.getCaSi());
+        textViewtennhac.setText(baihat.getTenBaiHat());
     }
     @Override
     protected void onDestroy() {

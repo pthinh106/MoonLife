@@ -35,8 +35,43 @@
         <entry key="..\:/Thinh/MoonLifeMusic/app/src/main/res/menu/seachview.xml" value="0.36666666666666664" />
         <entry key="..\:/Thinh/MoonLifeMusic/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.3025" />
         <entry key="..\:/Thinh/MoonLifeMusic/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.3025" />
+        <entry key="..\:/Thinh/New folder (2)/MoonLife/MoonLifeMusic/app/src/main/res/drawable/custom_background_banner.xml" value="0.2705" />
+        <entry key="..\:/Thinh/New folder (2)/MoonLife/MoonLifeMusic/app/src/main/res/layout/activity_dang_nhap.xml" value="0.36666666666666664" />
+        <entry key="..\:/Thinh/New folder (2)/MoonLife/MoonLifeMusic/app/src/main/res/layout/activity_dangky.xml" value="0.365625" />
+        <entry key="..\:/Thinh/New folder (2)/MoonLife/MoonLifeMusic/app/src/main/res/layout/activity_danh_sach_bai_hat.xml" value="0.36666666666666664" />
+        <entry key="..\:/Thinh/New folder (2)/MoonLife/MoonLifeMusic/app/src/main/res/layout/activity_danh_sach_bai_hat_ca_nhan.xml" value="0.25" />
+        <entry key="..\:/Thinh/New folder (2)/MoonLife/MoonLifeMusic/app/src/main/res/layout/activity_danh_sach_bai_hat_ca_nhan2.xml" value="0.36666666666666664" />
+        <entry key="..\:/Thinh/New folder (2)/MoonLife/MoonLifeMusic/app/src/main/res/layout/activity_danh_sach_cac_play_list.xml" value="0.36666666666666664" />
+        <entry key="..\:/Thinh/New folder (2)/MoonLife/MoonLifeMusic/app/src/main/res/layout/activity_main.xml" value="0.30520833333333336" />
+        <entry key="..\:/Thinh/New folder (2)/MoonLife/MoonLifeMusic/app/src/main/res/layout/activity_play_list_ca_nhan.xml" value="0.36666666666666664" />
+        <entry key="..\:/Thinh/New folder (2)/MoonLife/MoonLifeMusic/app/src/main/res/layout/activity_play_nhac_pro.xml" value="0.23229166666666667" />
+        <entry key="..\:/Thinh/New folder (2)/MoonLife/MoonLifeMusic/app/src/main/res/layout/activity_resetpassword.xml" value="0.36666666666666664" />
+        <entry key="..\:/Thinh/New folder (2)/MoonLife/MoonLifeMusic/app/src/main/res/layout/bottomsheetdanhsachbaihat.xml" value="0.35260416666666666" />
+        <entry key="..\:/Thinh/New folder (2)/MoonLife/MoonLifeMusic/app/src/main/res/layout/fragment_baihat_mau.xml" value="0.23229166666666667" />
+        <entry key="..\:/Thinh/New folder (2)/MoonLife/MoonLifeMusic/app/src/main/res/layout/fragment_baihatcanhan_mau.xml" value="0.36666666666666664" />
+        <entry key="..\:/Thinh/New folder (2)/MoonLife/MoonLifeMusic/app/src/main/res/layout/fragment_bang_xep_hang.xml" value="0.36666666666666664" />
+        <entry key="..\:/Thinh/New folder (2)/MoonLife/MoonLifeMusic/app/src/main/res/layout/fragment_ca_nhan.xml" value="0.265625" />
+        <entry key="..\:/Thinh/New folder (2)/MoonLife/MoonLifeMusic/app/src/main/res/layout/fragment_chude1.xml" value="0.265625" />
+        <entry key="..\:/Thinh/New folder (2)/MoonLife/MoonLifeMusic/app/src/main/res/layout/fragment_chude1_mau.xml" value="0.265625" />
+        <entry key="..\:/Thinh/New folder (2)/MoonLife/MoonLifeMusic/app/src/main/res/layout/fragment_chude2_mau.xml" value="0.265625" />
+        <entry key="..\:/Thinh/New folder (2)/MoonLife/MoonLifeMusic/app/src/main/res/layout/fragment_chude3_mau.xml" value="0.30520833333333336" />
+        <entry key="..\:/Thinh/New folder (2)/MoonLife/MoonLifeMusic/app/src/main/res/layout/fragment_cothebanthich.xml" value="0.23229166666666667" />
+        <entry key="..\:/Thinh/New folder (2)/MoonLife/MoonLifeMusic/app/src/main/res/layout/fragment_cothebanthich_mau.xml" value="0.30520833333333336" />
+        <entry key="..\:/Thinh/New folder (2)/MoonLife/MoonLifeMusic/app/src/main/res/layout/fragment_dianhac.xml" value="0.23229166666666667" />
+        <entry key="..\:/Thinh/New folder (2)/MoonLife/MoonLifeMusic/app/src/main/res/layout/fragment_playdanhsachbaihat.xml" value="0.36666666666666664" />
+        <entry key="..\:/Thinh/New folder (2)/MoonLife/MoonLifeMusic/app/src/main/res/layout/fragment_playdanhsachbaihat_mau.xml" value="0.265625" />
+        <entry key="..\:/Thinh/New folder (2)/MoonLife/MoonLifeMusic/app/src/main/res/layout/fragment_top100_mau.xml" value="0.265625" />
+        <entry key="..\:/Thinh/New folder (2)/MoonLife/MoonLifeMusic/app/src/main/res/menu/menu_addmusic.xml" value="0.30520833333333336" />
+        <entry key="..\:/Thinh/New folder (2)/MoonLife/MoonLifeMusic/app/src/main/res/menu/menu_addmusic2.xml" value="0.36666666666666664" />
+        <entry key="..\:/Thinh/New folder (2)/MoonLife/MoonLifeMusic/app/src/main/res/menu/menu_bottom_nav.xml" value="0.265625" />
+        <entry key="..\:/Thinh/New folder (2)/MoonLife/MoonLifeMusic/app/src/main/res/menu/seachview.xml" value="0.30520833333333336" />
       </map>
     </option>
+  </component>
+  <component name="EntryPointsManager">
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="retrofit2.http.FormUrlEncoded" />
+    </list>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />

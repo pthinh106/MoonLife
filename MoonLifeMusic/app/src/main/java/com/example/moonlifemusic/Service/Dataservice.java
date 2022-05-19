@@ -48,6 +48,19 @@ public interface Dataservice {
     @FormUrlEncoded
     @POST("danhsachcacplaylist.php")
     Call<List<Listmucisc>> GetDanhSachPlayList(@Field("idchude") String idchude);
+    @FormUrlEncoded
+    @POST("account.php")
+    Call< String > getLogin(@Field("user") String user , @Field("pass") String pass );
+    @FormUrlEncoded
+    @POST("danhsachbaihatcanhan.php")
+    Call<List<Baihat>> GetDanhSachBaiHatCanhan(@Field("user") String user);
+    @FormUrlEncoded
+    @POST("adddanhsachbaihatcanhan.php")
+    Call<String> AddDanhSachBaiHatCanhan(@Field("user") String user,@Field("idbaihat") String idbaihat);
+    @FormUrlEncoded
+    @POST("addaccount.php")
+    Call<String> AddAcount(@Field("user") String user,@Field("pass") String pass,@Field("name") String name,@Field("phone") String phone,@Field("email") String email);
+
 
 
 }

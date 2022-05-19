@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:weightSum="10">
     <RelativeLayout
@@ -11,20 +12,20 @@
         android:layout_height="0dp">
 
         <TextView
-            android:layout_centerVertical="true"
             android:id="@+id/trangthai"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
             android:text="User: "
             android:textColor="#000000"
             android:textSize="25sp" />
 
         <TextView
-            android:layout_centerVertical="true"
             android:id="@+id/usernamelg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:layout_toRightOf="@+id/trangthai"
@@ -45,22 +46,108 @@
             android:textSize="25sp" />
     </RelativeLayout>
     <LinearLayout
+        android:layout_marginTop="15dp"
         android:orientation="vertical"
         android:layout_weight="9.25"
         android:layout_width="match_parent"
         android:layout_height="0dp">
         <TextView
-            android:textColor="@color/black"
-            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:textSize="25sp"
             android:textStyle="bold"
-            android:textSize="20sp"
-            android:text="Danh sách bài hát yêu thích"
-            android:layout_width="match_parent"
+            android:textColor="@color/black"
+            android:text="Thư Viện"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
-        <androidx.recyclerview.widget.RecyclerView
+       <LinearLayout
+           android:layout_marginTop="10dp"
+           android:weightSum="10"
+           android:orientation="horizontal"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           >
+           <RelativeLayout
+               android:layout_weight="5"
+               android:layout_width="0dp"
+               android:layout_height="match_parent">
+               <androidx.cardview.widget.CardView
+                   app:cardCornerRadius="20dp"
+                   android:id="@+id/canhanbaihat"
+                   android:layout_centerInParent="true"
+                   android:layout_marginLeft="15dp"
+                   android:layout_width="170dp"
+                   android:layout_height="100dp">
+                   <RelativeLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent">
+
+                       <ImageView
+                           android:layout_width="match_parent"
+                           android:layout_height="match_parent"
+                           android:src="@drawable/custom_background_banner" />
+
+                       <TextView
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_centerInParent="true"
+                           android:text="Bài Hát"
+                           android:textColor="@color/black"
+                           android:textSize="25sp" />
+                   </RelativeLayout>
+               </androidx.cardview.widget.CardView>
+           </RelativeLayout>
+           <RelativeLayout
+               android:layout_weight="5"
+               android:layout_width="0dp"
+               android:layout_height="match_parent">
+               <androidx.cardview.widget.CardView
+                   app:cardCornerRadius="20dp"
+                   android:id="@+id/canhanplaylist"
+                   android:layout_centerInParent="true"
+                   android:layout_marginLeft="15dp"
+                   android:layout_width="170dp"
+                   android:layout_height="100dp">
+                   <RelativeLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent">
+
+                       <ImageView
+                           android:layout_width="match_parent"
+                           android:layout_height="match_parent"
+                           android:src="@drawable/custom_background_banner" />
+
+                       <TextView
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_centerInParent="true"
+                           android:text="PlayList"
+                           android:textColor="@color/black"
+                           android:textSize="25sp" />
+                   </RelativeLayout>
+               </androidx.cardview.widget.CardView>
+           </RelativeLayout>
+
+
+       </LinearLayout>
+        <LinearLayout
+
             android:layout_marginTop="10dp"
-            android:id="@+id/rcv_canhan"
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginLeft="20dp"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="Giới Thiệu Cho Bạn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/gioithieuchoban"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
     </LinearLayout>
 </LinearLayout>

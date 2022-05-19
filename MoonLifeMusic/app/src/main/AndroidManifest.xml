@@ -14,6 +14,20 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MoonLifeMusic">
         <activity
+            android:name=".Activity.ResetpasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.PlayListCaNhanActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.DanhSachBaiHatCaNhanActivity"
+            android:exported="false"
+            android:label="@string/title_activity_danh_sach_bai_hat_ca_nhan"
+            android:theme="@style/Theme.MoonLifeMusic.NoActionBar" />
+        <activity
+            android:name=".Activity.DangkyActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.DangNhapActivity"
             android:exported="false" />
         <activity

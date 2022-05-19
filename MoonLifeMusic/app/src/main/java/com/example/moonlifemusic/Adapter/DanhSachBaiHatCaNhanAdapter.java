@@ -11,32 +11,24 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.moonlifemusic.Activity.MainActivity;
 import com.example.moonlifemusic.Activity.PlayNhacProActivity;
 import com.example.moonlifemusic.Model.Baihat;
 import com.example.moonlifemusic.R;
-import com.example.moonlifemusic.Service.APIService;
-import com.example.moonlifemusic.Service.Dataservice;
 import com.example.moonlifemusic.Service_Local.ForegroundServiceControl;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
-public class DanhSachBaiHatAdapter extends  RecyclerView.Adapter<DanhSachBaiHatAdapter.ViewHolderr> {
+public class DanhSachBaiHatCaNhanAdapter extends  RecyclerView.Adapter<DanhSachBaiHatCaNhanAdapter.ViewHolderr> {
 
     Context context;
     ArrayList<Baihat> mangBaiHat;
     View view;
-    public DanhSachBaiHatAdapter(Context context, ArrayList<Baihat> mangBaiHat) {
+    public DanhSachBaiHatCaNhanAdapter(Context context, ArrayList<Baihat> mangBaiHat) {
         this.context = context;
         this.mangBaiHat = mangBaiHat;
     }
@@ -45,7 +37,7 @@ public class DanhSachBaiHatAdapter extends  RecyclerView.Adapter<DanhSachBaiHatA
     @Override
     public ViewHolderr onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        view = inflater.inflate(R.layout.fragment_baihat_mau,parent,false);
+        view = inflater.inflate(R.layout.fragment_baihatcanhan_mau,parent,false);
         return new ViewHolderr(view);
     }
 
@@ -68,7 +60,7 @@ public class DanhSachBaiHatAdapter extends  RecyclerView.Adapter<DanhSachBaiHatA
             @Override
             public void onClick(View v) {
                 PopupMenu popupMenu = new PopupMenu(view.getContext(),v);
-                popupMenu.inflate(R.menu.menu_addmusic);
+                popupMenu.inflate(R.menu.menu_addmusic2);
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
@@ -79,31 +71,6 @@ public class DanhSachBaiHatAdapter extends  RecyclerView.Adapter<DanhSachBaiHatA
                                 intent.putExtra("addbaihat", baihat);
                                 intent.putExtra("tontai", false);
                                 context.startService(intent);
-                                break;
-                            case R.id.iteamaddcanhan:
-                                if(MainActivity.getId() == null){
-                                    Toast.makeText(v.getContext(), "Bạn Chưa Đăng Nhập",Toast.LENGTH_SHORT).show();
-                                    break;
-                                }
-                                Dataservice dataservice = APIService.getService();
-                                Call<String> callback = dataservice.AddDanhSachBaiHatCanhan(MainActivity.getId(),baihat.getIdBaiHat());
-                                callback.enqueue(new Callback<String>() {
-                                    @Override
-                                    public void onResponse(Call<String> call, Response<String> response) {
-                                        String add = response.body();
-                                        if(add.equals("1")){
-                                            Toast.makeText(v.getContext(), "Thành Công",Toast.LENGTH_SHORT).show();
-                                        }else{
-                                            Toast.makeText(v.getContext(), "Thất Bại",Toast.LENGTH_SHORT).show();
-                                        }
-                                    }
-
-                                    @Override
-                                    public void onFailure(Call<String> call, Throwable t) {
-
-                                    }
-                                });
-                                break;
                         }
                         return false;
                     }

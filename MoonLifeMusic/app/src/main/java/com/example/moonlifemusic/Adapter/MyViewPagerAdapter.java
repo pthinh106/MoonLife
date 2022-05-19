@@ -25,8 +25,8 @@ public class MyViewPagerAdapter extends FragmentStateAdapter {
                 return new BangXepHangFragment();
             case 2:
                 return new TimKiemFragment();
-//            case 3:
-//                return new CaNhanFragment();
+            case 3:
+                return new CaNhanFragment();
             default:
                 return new TrangChuFragment();
         }
